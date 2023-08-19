@@ -1,20 +1,51 @@
+"use client";
+
+import { useState } from "react";
+
 export default function ContactForm() {
+    const [fullname, setFullname] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        console.log("Full name: ", fullname);
+        console.log("Email ", email);
+        console.log("Message: ", message);
+    };
+
     return (
         <>
-        <form className="py-4 mt-4 border-t flex flex-col gap-5">
+        <form 
+        onSubmit={handleSubmit}
+        className="py-4 mt-4 border-t flex flex-col gap-5"
+        >
             <div>
                 <label htmlFor="fullname">Ful Name</label>
-                <input type="text" id="fullname" placeholder="John Doe" />
+                <input 
+                onChange={e => setFullname(e.target.value)}
+                value={fullname}
+                type="text" 
+                id="fullname" 
+                placeholder="John Doe" />
             </div>
 
             <div>
                 <label htmlFor="email">Email</label>
-                <input type="text" id="email" placeholder="john@gmail.com" />
+                <input 
+                onChange={e => setEmail(e.target.value)}
+                value={email}
+                type="text" 
+                id="email" 
+                placeholder="john@gmail.com" />
             </div>
 
             <div>
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">Your Message</label>
                 <textarea 
+                onChange={e => setMessage(e.target.value)}
+                value={message}
                 className="h-32"
                 id="message" 
                 placeholder="type your message right here"></textarea>
