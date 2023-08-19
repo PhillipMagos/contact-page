@@ -1,6 +1,7 @@
 import connectDB from "@/app/lib/mongodb";
 import Contact from "@/app/models/contact";
 import { NextResponse } from "next/server";
+import mongoose from "mongoose";
 
 export async function POST(req) {
     // 20:50
@@ -15,18 +16,17 @@ export async function POST(req) {
         await Contact.create({fullname, email, message})
 
         return NextResponse.json({
-            msg: ["Message sent successfully"], success: true
+            msg: ["Message sent successfully"], success: true,
         })
     } catch(error) {
         if(error instanceof mongoose.Error.ValidationError) {
             let errorList = [];
             for (let e in error.errors) {
-                errorList.push(e.message);
+                errorList.push(error.errors[e].message);
             }
-
-            return NextResponse.json({msg: errorList})
-        }
-        else {
+            console.log(errorList)
+            return NextResponse.json({ msg: errorList })
+          } else {
             return NextResponse.json(error)
         }
     }
