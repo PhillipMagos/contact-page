@@ -1,4 +1,4 @@
-https://www.youtube.com/watch?v=a2oa0qL4CB8
+https://www.youtube.com/watch?v=a2oa0qL4CB8 || 20:50 @ route.js ....
 
 create-next-app@13.4.19
 Ok to proceed? (y) y
@@ -13,9 +13,15 @@ Ok to proceed? (y) y
 
 npm i mongoose
 1. set up mongoDB
+    npm i mongoose
 
 
+22:30 - MongoDB
+mkdir lib inside app folder
+touch mongodb.js inside lib folder
 
+24:00 mkdir models inside app folder
+touch contact.js inside models folder
 
 
 
