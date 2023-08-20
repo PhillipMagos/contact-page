@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from 'next/router';
+//import { useRouter } from 'next/router';
 
 
 export default function ContactForm() {
@@ -13,7 +13,7 @@ export default function ContactForm() {
     
     
     const handleSubmit = async (e) => {
-        const router = useRouter();
+        //const router = useRouter();
         e.preventDefault();
 
         console.log("Full name: ", fullname);
@@ -50,7 +50,7 @@ export default function ContactForm() {
     return (
         <>
         <form 
-        action="https://www.youtube.com/"
+        //action="https://www.youtube.com/"
         onSubmit={handleSubmit}
         className="py-4 mt-4 border-t flex flex-col gap-5"
         >
